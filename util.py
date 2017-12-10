@@ -3,6 +3,7 @@ import math
 import numpy as np
 import scipy.misc as misc
 import matplotlib.pyplot as plt
+import cv2
 
 
 def vis_img(np_img):
@@ -58,3 +59,12 @@ def warp(img2, flow):
 
     return rec_img1
 
+
+def show(img):
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1,2,0)), interpolation='nearest')
+
+def show_cv2(img):
+    npimg = img.numpy()
+    cv2.imshow('img1', np.transpose(npimg, (1,2,0)))
+    cv2.waitKey()
